@@ -19,13 +19,12 @@ a{
 }
 
 .topsection {
-    border-bottom: 1pt solid white;
     padding: 10px; /* Example padding */
     flex-shrink: 0; /* Prevent it from shrinking below its content height */
 }
 
 .bottomsection {
-    border: 1pt solid black;
+    border-top: 1pt solid white;
     width: 100%;
     display: flex;
     justify-content: space-between;
