@@ -1,0 +1,119 @@
+body {
+    border: 2pt solid black;
+    height: 99vh; /* Ensure body takes up the full viewport height */
+    margin: 0; /* Reset default body margin */
+    display: flex;
+    flex-direction: column; /* Stack topsection and bottomsection vertically */
+    overflow: hidden; /* Prevent body overflow */
+    background-color: black;
+    color: white;
+}
+
+div{
+    text-align: center;
+}
+
+a{
+    color: white;
+    padding-bottom: 2pt;
+}
+
+.topsection {
+    border-bottom: 1pt solid white;
+    padding: 10px; /* Example padding */
+    flex-shrink: 0; /* Prevent it from shrinking below its content height */
+}
+
+.bottomsection {
+    border: 1pt solid black;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1; /* Allow it to take remaining vertical space */
+    overflow: hidden; /* Prevent potential overflow within bottomsection */
+}
+
+.demo-content {
+    border: 1pt dotted black;
+    width: 100%;
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    flex-direction: column;
+    flex-grow: 1; /* Take up available space in bottomsection */
+    overflow: hidden; /* Prevent content overflow within demo-content */
+}
+
+.demo-text {
+    border: 1pt solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 10px; /* Add some space between text and media */
+    flex-shrink: 0; /* Don't let it shrink too much */
+}
+
+.demo-text > div {
+    border: 1pt solid black;
+}
+
+#mediaContainer {
+    border: 1pt solid white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+    flex-grow: 1;
+}
+
+button{
+    color: white;
+    background-color: black;
+    border: 1pt solid white;
+    padding: 5pt;
+    font-size: large;
+    font-weight: bolder;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 0pt;
+}
+
+.title{
+    font-size: xx-large;
+    font-weight: bolder;
+    font-variant: small-caps;
+    letter-spacing: 5pt;
+    padding: 10pt;
+}
+
+.description{
+    margin: 5pt;
+}
+
+#demopart{
+    font-size: x-large;
+    font-weight: bolder;
+    padding: 1pt;
+}
+
+#demosubpart{
+    padding-bottom: 1pt;
+    font-size: large;
+    font-weight: bold;;
+}

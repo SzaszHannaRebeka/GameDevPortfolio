@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Captured Astronaut</title>
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body style="font-family: 'MingLiU-ExtB';">
+    <div class="topsection">
+        <div style="display: flex; justify-content: space-between; font-family: 'High Tower Text'">
+          <a href="mainpage.html"><alt="CapturedAstronaut">Main Page</a>
+          <a href="backofbeyondapothecary.html"><alt="BackofBeyondApothecary">Back Of Beyond Apothecary</a>
+        </div>
+        <div class="title">Captured Astronaut</div>
+        <div class="description">A simple game with the goal of escaping from an enemy space station, using the W A S D buttons to navigate and right mouse button to open fire.</div>
+        <div class="description">The development of the game utilises the free assets in the Unity Asset Store.</div>
+    </div>
+    <div class="bottomsection">
+        <button id="prevBtn"> ↤ </button>
+        <div class="demo-content">
+          <div class="demo-text">
+            <div id="demopart">Title</div>  
+            <div id="demosubpart">Subtitle</div>
+            <div id="demodescription">Desctiption of the subtitle/title</div>
+          </div>
+          <div id="mediaContainer">
+            <img>
+            <iframe></iframe>
+          </div>
+        </div>
+        <button id="nextBtn"> ↦ </button>
+    </div>
+</body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const demopart = document.getElementById('demopart');
+    const demosubpart = document.getElementById('demosubpart');
+    const description = document.getElementById('demodescription');
+    const mediaContainer = document.getElementById('mediaContainer');
+    //ADD MEDIATYPE CONTAINERS
+
+    let counter = 0;
+
+    const titles=[
+      'User Interface',
+      'Game Mechanics'
+    ]
+
+    const subtitles=[
+      '',
+      'Difficulty levels',
+      'Menu',
+      'You won',
+      'You lost',
+      'Map',
+      'Story',
+      'Story',
+      'Story',
+      'Story',
+      'Story',
+      'Story',
+      '',
+      'Get out of your cell',
+      'Rush through unnervingly long corridors',
+      'Get through pesky doors',
+      'Enjoy the scenery',
+      'Manoeuvre guns',
+      'Escape the space station'
+    ]
+
+    const descriptions=[
+      'The following section introduces the main parts of the user interface.',
+      'The player can pick from three difficulties in the beginning of every turn. Normal – 40 minutes | Medium – 5 minutes | Hard – 3 minutes',
+      'Menu that pauses the game, the countdown to the time left for escaping temporarily stops, the player can continue or start a new round or quit the game.',
+      'Congratulations message for the player once they have escaped and the option to start the new round or quit the game.',
+      'Loosing screen for when the player can’t complete the goal and the option to start the new round or quit the game.',
+      'Only portrays the layout of the space station, the player’s starting location and the portal’s locaction, can be turned on and off clicking the MAP button.',
+      'When the player starts a new round, they are welcomed by a short summary of their situation and the needed information to get themselves out of the pickle they woke up in.',
+      'When the player starts a new round, they are welcomed by a short summary of their situation and the needed information to get themselves out of the pickle they woke up in.',
+      'When the player starts a new round, they are welcomed by a short summary of their situation and the needed information to get themselves out of the pickle they woke up in.',
+      'When the player starts a new round, they are welcomed by a short summary of their situation and the needed information to get themselves out of the pickle they woke up in.',
+      'When the player starts a new round, they are welcomed by a short summary of their situation and the needed information to get themselves out of the pickle they woke up in.',
+      'When the player starts a new round, they are welcomed by a short summary of their situation and the needed information to get themselves out of the pickle they woke up in.',
+      'The following section has the sounds of the game included. For the best experience, please turn up your volume.',
+      'The first goal is to figure out how to breach confinement, giving the player the opportunity to learn the controls before the countdown starts.',
+      'Corridors designed to mess with the spatial awareness of the player, providing challenge.',
+      'For the sake of irritation and pressure the player is often faced with multiple doors back to back.',
+      'For immersion and the feel of the wast universe the player is surrounded by glass panes to impose the lack of any aid on the player.',
+      'In the corridors the player is often faced with guns in fast succession after each other to keep them on their toes and force them to concentrate.',
+      'When the player finally reaches the portal room their last task is just to stand in the portal.'
+    ]
+
+    function updateContent() {
+      mediaContainer.innerHTML = ''; // Clear previous content
+
+      if(counter<12){
+        demopart.textContent = 'User Interface';
+
+        if(counter!==0){
+          const image = document.createElement('img');
+          image.src = 'capturedastronaut/'+counter+'.png';
+          image.alt = 'Image based on counter';
+          mediaContainer.appendChild(image);
+        }
+      }
+      else{
+        demopart.textContent = 'Gameplay';
+
+        if(counter!==12){
+          const video = document.createElement('iframe');
+          video.src = 'capturedastronaut/'+counter+'.mp4'; // Replace with your video path or embed URL
+          video.allowFullscreen = true;
+          mediaContainer.appendChild(video);
+        }
+      }
+
+      // Handle demosubpart visibility and text
+      if(counter === 0 || counter === 12){
+        demosubpart.style.display = 'none';
+      } else {
+        demosubpart.style.display = 'block';
+        demosubpart.textContent = subtitles[counter];
+      }
+
+      // Handle description text
+      if (counter >= 0 && counter < descriptions.length) {
+        description.textContent = descriptions[counter];
+      } else {
+        description.textContent = ''; // Or some default text if counter is out of bounds
+      }
+
+      // Handle button state and counter reset
+      if(counter===0){
+        prevBtn.classList.add('hidden', 'disabled');
+        prevBtn.disabled = true;
+        prevBtn.style.opacity = '0.5';
+        prevBtn
+      }
+      else if (counter===subtitles.length - 1){ // Reset after the last subtitle/description
+        counter=-1;
+      }
+      else{
+        prevBtn.classList.remove('hidden', 'disabled');
+        prevBtn.disabled = false;
+        prevBtn.style.opacity = '1';
+      }
+    }
+
+    prevBtn.addEventListener('click', function() {
+      counter--;
+      updateContent();
+    });
+
+    nextBtn.addEventListener('click', function() {
+      counter++;
+      updateContent();
+    });
+
+    // Initial content update
+    updateContent();
+  });
+</script>

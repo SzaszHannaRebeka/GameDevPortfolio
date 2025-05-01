@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Back Of Beyond Apothecary</title>
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body style="font-family: 'Monotype Corsiva';">
+    <div class="topsection">
+        <div style="display: flex; justify-content: space-between; font-family: 'High Tower Text'">
+          <a href="mainpage.html"><alt="MainPage">Main Page</a>
+          <a href="capturedastronaut.html"><alt="CapturedAstronaut">Captured Astronaut</a>
+        </div>
+        <div class="title">Back Of Beyond Apothecary</div>
+        <div class="description">An educational game about the traditional use of herbs, in both folk medicine and mysticism. The player learns about the identification and use of plants through repeat encounter and finding remedies/solutions for ailments/complaints of the townsfolk. The player is encouraged by learning-process triggered character interactions that expand on the story of the town and surrounding area.</div>
+        <div class="description">The 3D and 2D assets used in the game were made by me in Blender and FireAlpaca, for the music I utilised the Unity Asset Store.</div>
+    </div>
+    <div class="bottomsection">
+        <button id="prevBtn"> ↤ </button>
+        <div class="demo-content">
+          <div class="demo-text">
+            <div id="demopart">Title</div>
+            <div id="demosubpart">Subtitle</div>
+            <div id="demodescription">Desctiption of the subtitle/title</div>
+          </div>
+          <div id="mediaContainer">
+            <img>
+            <iframe></iframe>
+          </div>
+        </div>
+        <button id="nextBtn"> ↦ </button>
+    </div>
+</body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const demopart = document.getElementById('demopart');
+    const demosubpart = document.getElementById('demosubpart');
+    const description = document.getElementById('demodescription');
+    const mediaContainer = document.getElementById('mediaContainer');
+    //ADD MEDIATYPE CONTAINERS
+
+    let counter = 0;
+
+    const titles=[
+      'User Interface',
+      'Game Mechanics'
+    ]
+
+    const subtitles=[
+      '',
+      'Main Menu',
+      'Main Menu',
+      'Main Menu',
+      'Game UI',
+      'Game Menu',
+      'Game Menu',
+      'Game Menu',
+      '',
+      'Learning the plants',
+      'Learning the plants',
+      'Making the products',
+      'Making the products',
+      'Making the products',
+      'Making the products',
+      'Completing the orders',
+      'Completing the orders',
+      'Completing the orders',
+      'Completing the orders',
+      'NPC expressions',
+      '',
+      'Main Menu',
+      'Learning the plants',
+      'Making products',
+      'Completing orders',
+      'Meeting with NPCs',
+      'Completing the NPC mission'
+    ]
+
+    const descriptions=[
+      'The following section introduces the main parts of the user interface.',
+      'The player can choose to create a new save or to load an already existing one, or exit the game.',
+      'The player can create a new save.',
+      'The player can load an already existing save.',
+      'The player can open the menu, start a new day and see the good and bad scores they gathered through their playthrough so far.',
+      'The player can choose to load an already existing save, to start a new save by duplicating the currently played one or to return to the main menu.',
+      'The player can load an already existing save.',
+      'The player can start a new save by duplicating the currently played one.',
+      'In the beginning of every new save, the player is walked through the functions of the game through the tutorial. This section will show the main parts of said tutorial.',
+      'Helps the player get familiar with the system of learning how to recognise the plants.',
+      'Helps the player get familiar with the system of learning how to recognise the plants.',
+      'Helps the player get familiar with the system of making the products.',
+      'Helps the player get familiar with the system of making the products.',
+      'Helps the player get familiar with the system of making the products.',
+      'Helps the player get familiar with the system of making the products.',
+      'Helps the player get familiar with the system of completing the orders of the townsfolk.',
+      'Helps the player get familiar with the system of completing the orders of the townsfolk.',
+      'Helps the player get familiar with the system of completing the orders of the townsfolk.',
+      'Helps the player get familiar with the system of completing the orders of the townsfolk.',
+      'The NPCs change their expression depending on if the player chooses the liked, disliked or neutral answer.',
+      'The following section has the sounds of the game included. For the best experience, please turn up your volume.',
+      'The player can choose an already existing save or create a new one (from the menu or through the + sign in the table of existing saves).',
+      'The player is given 5 plants each day, the ones they haven’t learned have an input field for their names, which can be checked in the Book of Remedies and Herbs.',
+      'The player chooses the type and part of said type of plant to use in the making of the medicine, whose type can be set by using the switch-system by the tanks.',
+      'The player chooses the order they want to complete from the folder on the counter, and from the cabinet the product vial they want to complete the order with.',
+      'The player meets with an NPC every time they learn a plant, and given a little mission and the chance to strengthen or worsen the relationship by their choice.',
+      'The player, when meeting with the NPC next time, can complete the mission. They had ample time to check the Book of Remedies and Herbs for the information.'
+    ]
+
+    function updateContent() {
+      mediaContainer.innerHTML = ''; // Clear previous content
+
+      if(counter<8){
+        demopart.textContent = 'User Interface';
+
+        if(counter!==0){
+          const image = document.createElement('img');
+          image.src = 'backofbeyondapothecary/'+counter+'.png';
+          image.alt = 'Image based on counter';
+          mediaContainer.appendChild(image);
+        }
+      }
+      else if(counter>7 && counter<20){
+        demopart.textContent = 'Tutorial';
+
+        if(counter!==8){
+          const image = document.createElement('img');
+          image.src = 'backofbeyondapothecary/'+counter+'.png';
+          image.alt = 'Image based on counter';
+          mediaContainer.appendChild(image);
+        }
+      }
+      else{
+        demopart.textContent = 'Gameplay';
+
+        if(counter!==20){
+          const video = document.createElement('iframe');
+          video.src = 'backofbeyondapothecary/'+counter+'.mp4'; // Replace with your video path or embed URL
+          video.allowFullscreen = true;
+          mediaContainer.appendChild(video);
+        }
+      }
+
+      // Handle demosubpart visibility and text
+      if(counter === 0 || counter === 8){
+        demosubpart.style.display = 'none';
+      } else {
+        demosubpart.style.display = 'block';
+        demosubpart.textContent = subtitles[counter];
+      }
+
+      // Handle description text
+      if (counter >= 0 && counter < descriptions.length) {
+        description.textContent = descriptions[counter];
+      } else {
+        description.textContent = ''; // Or some default text if counter is out of bounds
+      }
+
+      // Handle button state and counter reset
+      if(counter===0){
+        prevBtn.classList.add('hidden', 'disabled');
+        prevBtn.disabled = true;
+        prevBtn.style.opacity = '0.5';
+        prevBtn
+      }
+      else if (counter===subtitles.length - 1){ // Reset after the last subtitle/description
+        counter=-1;
+      }
+      else{
+        prevBtn.classList.remove('hidden', 'disabled');
+        prevBtn.disabled = false;
+        prevBtn.style.opacity = '1';
+      }
+    }
+
+    prevBtn.addEventListener('click', function() {
+      counter--;
+      updateContent();
+    });
+
+    nextBtn.addEventListener('click', function() {
+      counter++;
+      updateContent();
+    });
+
+    // Initial content update
+    updateContent();
+  });
+</script>
