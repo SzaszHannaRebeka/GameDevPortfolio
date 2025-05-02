@@ -7,7 +7,7 @@
 </head>
 <body style="font-family: 'MingLiU-ExtB';">
     <div class="topsection">
-        <div style="display: flex; justify-content: space-between; font-family: 'High Tower Text'">
+        <div style="display: flex; justify-content: space-between; font-family: 'High Tower Text'; padding-bottom: 0em; margin-bottom: 0em;">
           <a href="mainpage.html"><alt="CapturedAstronaut">Main Page</a>
           <a href="backofbeyondapothecary.html"><alt="BackofBeyondApothecary">Back Of Beyond Apothecary</a>
         </div>
@@ -40,7 +40,6 @@
     const demosubpart = document.getElementById('demosubpart');
     const description = document.getElementById('demodescription');
     const mediaContainer = document.getElementById('mediaContainer');
-    //ADD MEDIATYPE CONTAINERS
 
     let counter = 0;
 
@@ -137,7 +136,7 @@
         prevBtn.classList.add('hidden', 'disabled');
         prevBtn.disabled = true;
         prevBtn.style.opacity = '0.5';
-        prevBtn
+        prevBtn.style.cursor = 'default';
       }
       else if (counter===subtitles.length - 1){ // Reset after the last subtitle/description
         counter=-1;
@@ -146,6 +145,7 @@
         prevBtn.classList.remove('hidden', 'disabled');
         prevBtn.disabled = false;
         prevBtn.style.opacity = '1';
+        prevBtn.style.cursor = 'pointer';
       }
     }
 

@@ -5,9 +5,9 @@
     <title>Back Of Beyond Apothecary</title>
     <link rel="stylesheet" href="portfolio.css">
 </head>
-<body style="font-family: 'Monotype Corsiva';">
+<body style="font-family: 'Monotype Corsiva';  font-size: large;">
     <div class="topsection">
-        <div style="display: flex; justify-content: space-between; font-family: 'High Tower Text'">
+        <div style="display: flex; justify-content: space-between; font-family: 'High Tower Text'; padding-bottom: 0em; margin-bottom: 0em; font-size: normal;">
           <a href="mainpage.html"><alt="MainPage">Main Page</a>
           <a href="capturedastronaut.html"><alt="CapturedAstronaut">Captured Astronaut</a>
         </div>
@@ -72,6 +72,8 @@
       'NPC expressions',
       '',
       'Main Menu',
+      'Main Menu',
+      'Learning the plants',
       'Learning the plants',
       'Making products',
       'Completing orders',
@@ -101,8 +103,10 @@
       'Helps the player get familiar with the system of completing the orders of the townsfolk.',
       'The NPCs change their expression depending on if the player chooses the liked, disliked or neutral answer.',
       'The following section has the sounds of the game included. For the best experience, please turn up your volume.',
-      'The player can choose an already existing save or create a new one (from the menu or through the + sign in the table of existing saves).',
+      'After a warning about use of herbal medicine, the player can a new one (from the menu or through the + sign in the table of existing saves) or...',
+      '...choose an already existing save.',
       'The player is given 5 plants each day, the ones they haven’t learned have an input field for their names, which can be checked in the Book of Remedies and Herbs.',
+      'When the player messes up the name of the plant - misspelling the right name or writing the wrong name - a star is lost.',
       'The player chooses the type and part of said type of plant to use in the making of the medicine, whose type can be set by using the switch-system by the tanks.',
       'The player chooses the order they want to complete from the folder on the counter, and from the cabinet the product vial they want to complete the order with.',
       'The player meets with an NPC every time they learn a plant, and given a little mission and the chance to strengthen or worsen the relationship by their choice.',
@@ -163,7 +167,7 @@
         prevBtn.classList.add('hidden', 'disabled');
         prevBtn.disabled = true;
         prevBtn.style.opacity = '0.5';
-        prevBtn
+        prevBtn.style.cursor = 'default';
       }
       else if (counter===subtitles.length - 1){ // Reset after the last subtitle/description
         counter=-1;
@@ -172,6 +176,7 @@
         prevBtn.classList.remove('hidden', 'disabled');
         prevBtn.disabled = false;
         prevBtn.style.opacity = '1';
+        prevBtn.style.cursor = 'pointer';
       }
     }
 
