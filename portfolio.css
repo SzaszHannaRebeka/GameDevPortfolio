@@ -114,3 +114,41 @@ iframe {
     font-size: large;
     font-weight: bold;;
 }
+
+.source{
+    padding: 0em;
+    margin: 0em;
+    padding-top: 0.5em;
+    display: flex;
+}
+
+.source > div{
+    margin: 0em;
+    padding: 0em;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.source > a{
+    margin: 0em;
+    padding: 0em
+}
+
+/* Custom scrollbar styling for WebKit browsers */
+::-webkit-scrollbar {
+    width: 0.2em;
+}
+::-webkit-scrollbar-track {
+    background: black;
+}
+::-webkit-scrollbar-thumb {
+    background: white;
+}
+
+/* Custom scrollbar styling for Firefox */
+* {
+    scrollbar-width: thin; /* Use thin scrollbar */
+    scrollbar-color: white black; /* Thumb color and track color */
+}
