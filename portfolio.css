@@ -154,3 +154,24 @@ iframe {
     scrollbar-width: thin; /* Use thin scrollbar */
     scrollbar-color: white black; /* Thumb color and track color */
 }
+
+@font-face {
+    font-family: 'MTCORSVA';
+    src: url('./fonts/MTCORSVA.TTF') format('truetype');
+    font-weight: normal; /* Set the font weight (e.g., normal, bold, 400, 700) */
+    font-style: normal;  /* Set the font style (e.g., normal, italic) */
+}
+
+@font-face {
+    font-family: 'MINGLIUB';
+    src: url('./fonts/MINGLIUB.TTC') format('collection');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HTOWERT'; 
+    src: url('./fonts/HTOWERT.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
