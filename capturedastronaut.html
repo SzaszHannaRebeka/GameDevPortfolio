@@ -142,7 +142,6 @@
         prevBtn.classList.add('hidden', 'disabled');
         prevBtn.disabled = true;
         prevBtn.style.opacity = '0.5';
-        prevBtn.style.cursor = 'default';
       }
       else if (counter===subtitles.length - 1){ // Reset after the last subtitle/description
         counter=-1;
@@ -151,7 +150,6 @@
         prevBtn.classList.remove('hidden', 'disabled');
         prevBtn.disabled = false;
         prevBtn.style.opacity = '1';
-        prevBtn.style.cursor = 'pointer';
       }
     }
 
