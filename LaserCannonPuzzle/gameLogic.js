@@ -214,9 +214,9 @@ function updateBoard() {
                         square.textContent = "⊛";
                         square.style.color = "cyan";
                         square.style.textAlign = "center";
-                        square.style.display = "flex"; // Enable flexbox
-                        square.style.justifyContent = "center"; // Center horizontally
-                        square.style.alignItems = "center"; // Center vertically
+                        square.style.display = "flex"; 
+                        square.style.justifyContent = "center"; 
+                        square.style.alignItems = "center"; 
                     }
         
                     // Add blocked squares
@@ -238,7 +238,7 @@ function updateBoard() {
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Page loaded, initializing board...");
-    updateBoard(); // Render the initial board
+    updateBoard(); 
 });
 
 document.addEventListener("keydown", (event) => {
